@@ -610,10 +610,10 @@ def quarta_pagina(data, geofile):
         c3, c4, c5, c6 = st.columns((13, 30, 13, 30))
 
 
-        c3.metric(label="Gasto total da compra", value="$1.318.908.451,00")
-        c4.metric(label="Total economizado", value="$286.119.260,00")
-        c5.metric(label="Valor total de venda", value="$1.561.075.462,00")
-        c6.metric(label="Lucro total", value="$242.167.011,00")
+        c3.metric(label="Gasto total da compra", value="$179.537.408,00")
+        c4.metric(label="Total economizado", value="$33.658.210,00")
+        c5.metric(label="Valor total de venda", value="$209.320.208,00")
+        c6.metric(label="Lucro total", value="$29.782.800,00")
 
 
 
