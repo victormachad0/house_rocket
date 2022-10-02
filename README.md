@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-https://victormachad0-house-rocket-project-main-b3isou.streamlitapp.com/
+https://victormachad0-house-rocket-main-ihud02.streamlitapp.com/
 </h3>
 
 <h1 align="center">
@@ -40,6 +40,7 @@ e o preço de venda, maior o lucro da empresa e portanto maior sua receita.
    - Jupyter Notebook
    - Pycharm
    - Streamlit
+   - Streamlit Cloud
    
   ### 3.3 Processo até a solução
    - Com os dados já tratados, foi feito um agrupamento por região, e dentro de cada região foi identificado o preço mediano dos imóveis. 
@@ -78,7 +79,7 @@ e o preço de venda, maior o lucro da empresa e portanto maior sua receita.
 
 | Preço total de compra  |  Preço total de venda   |   Lucratividade total   |
 |------------------------|-------------------------|-------------------------|
-|     $1.318.908.451     |      $1.561.075.462     |      $242.167.011       |
+|     $179.537.408,00    |      $209.320.208,00     |      $29.782.800,00       |
 
 
 
