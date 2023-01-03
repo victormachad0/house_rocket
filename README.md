@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-https://victormachad0-house-rocket-main-ihud02.streamlitapp.com/
+https://house-rocket-sales.streamlit.app/
 </h3>
 
 <h1 align="center">
