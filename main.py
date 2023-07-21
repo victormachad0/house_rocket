@@ -34,7 +34,8 @@ def get_geofile( url ):
 def data_transform(data):
 
     # Transformation
-    data['date'] = pd.to_datetime(data['date'], format='%Y-%m-%d')
+    #data['date'] = pd.to_datetime(data['date'], format='%Y-%m-%d')
+    data['date'] = pd.to_datetime( data['date'] ).dt.strftime( '%Y-%m-%d' )
     data['bathrooms'] = data['bathrooms'].astype('int64')
     data['floors'] = data['floors'].astype('int64')
 
