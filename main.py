@@ -19,15 +19,15 @@ st.title("House Rocket Project")
 tab0, tab1, tab2, tab3 = st.tabs(['🛕 Home', '📜 Visao Geral', '📉 Hipoteses', '🧠Questoes de Negocios'])
 
 #import data
-@st.cache( allow_output_mutation=True )
+@st.cache(allow_output_mutation=True)
 def get_data(path):
     data = pd.read_csv(path)
 
     return data
 
-@st.cache( allow_output_mutation=True )
+@st.cache(allow_output_mutation=True)
 def get_geofile( url ):
-    geofile = geopandas.read_file( url )
+    geofile = geopandas.read_file(url)
 
     return geofile
 
@@ -650,7 +650,7 @@ def quarta_pagina(data, geofile):
             heat_map = df_sample[['zipcode', 'price']]
             heat_map.columns = ['ZIP', 'PRICE']
 
-            geofile = geofile[geofile['ZIP'].isin(heat_map['ZIP'].tolist())]
+            geofile = str(geofile[geofile['ZIP'].isin(heat_map['ZIP'].tolist())])
 
             region_price_map = folium.Map(location=[df_sample['lat'].mean(),
                                                     df_sample['long'].mean()],
@@ -672,16 +672,18 @@ def quarta_pagina(data, geofile):
 
 
 if __name__ == '__main__':
-    # get data
-    path = './datasets/kc_house_data.csv'
+   
+    path = '.\datasets\kc_house_data.csv'
     url = 'https://opendata.arcgis.com/datasets/83fc2e72903343aabff6de8cb445b81c_2.geojson'
 
     data = get_data(path)
-    geofile = get_geofile(url)
+    geofile = get_geofile('zipcode_area.geojson')
+    
+    #geofile = get_geofile(url)
 
     # transform
     data = data_transform(data)
-
+   
     # pages
     primeira_pagina()
     segunda_pagina(data)
