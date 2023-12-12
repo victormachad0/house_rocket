@@ -26,7 +26,7 @@ def get_data(path):
     return data
 
 @st.cache(allow_output_mutation=True)
-def get_geofile( url ):
+def get_geofile(url):
     geofile = geopandas.read_file(url)
 
     return geofile
@@ -647,10 +647,10 @@ def quarta_pagina(data, geofile):
             # Mapa de calor
             c8.subheader('Mapa de calor do preço dos imóveis')
 
-            heat_map = df_sample[['zipcode', 'price']]
+            heat_map = df_sample[['zipcode', 'price']].groupby('zipcode').mean().reset_index()
             heat_map.columns = ['ZIP', 'PRICE']
 
-            geofile = str(geofile[geofile['ZIP'].isin(heat_map['ZIP'].tolist())])
+            geofile = geofile[geofile['ZIP'].isin(heat_map['ZIP'].tolist())]
 
             region_price_map = folium.Map(location=[df_sample['lat'].mean(),
                                                     df_sample['long'].mean()],
