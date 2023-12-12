@@ -673,7 +673,7 @@ def quarta_pagina(data, geofile):
 
 if __name__ == '__main__':
    
-    path = '.\datasets\kc_house_data.csv'
+    path = 'kc_house_data.csv'
     url = 'https://opendata.arcgis.com/datasets/83fc2e72903343aabff6de8cb445b81c_2.geojson'
 
     data = get_data(path)
