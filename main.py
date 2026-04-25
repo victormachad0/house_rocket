@@ -27,7 +27,14 @@ def get_data(path):
 
 @st.cache(allow_output_mutation=True)
 def get_geofile(url):
-    geofile = geopandas.read_file(url)
+    try:
+        geofile = gpd.read_file(url)
+        return geofile
+    except Exception as e:
+        print(f"Erro ao carregar geofile: {e}")
+        raise e
+    
+#geofile = geopandas.read_file(url)
 
     return geofile
 
