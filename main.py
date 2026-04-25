@@ -656,17 +656,26 @@ def quarta_pagina(data, geofile):
                                                     df_sample['long'].mean()],
                                           default_zoom_start=15)
 
-            region_price_map.choropleth(data=heat_map,
-                                        geo_data=geofile,
-                                        columns=['ZIP', 'PRICE'],
-                                        key_on='feature.properties.ZIP',
-                                        fill_color='YlOrRd',
-                                        fill_opacity=0.7,
-                                        line_opacity=0.2,
-                                        legend_name='AVG PRICE')
+           # region_price_map.choropleth(data=heat_map,
+           #                             geo_data=geofile,
+           #                             columns=['ZIP', 'PRICE'],
+           #                             key_on='feature.properties.ZIP',
+           #                             fill_color='YlOrRd',
+           #                             fill_opacity=0.7,
+           #                             line_opacity=0.2,
+           #                             legend_name='AVG PRICE')
 
-            with c8:
-                folium_static(region_price_map)
+            folium.Choropleth(geo_data=geofile,
+                              data=heat_map,
+                              columns=['ZIP', 'PRICE'],
+                              key_on='feature.properties.ZIP',
+                              fill_color='YlOrRd',
+                              fill_opacity=0.7,
+                              line_opacity=0.2,
+                              legend_name='AVG PRICE').add_to(region_price_map)
+
+        with c8:
+            folium_static(region_price_map)
 
     return None
 
