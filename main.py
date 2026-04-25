@@ -678,7 +678,7 @@ if __name__ == '__main__':
     url = 'zipcode_area.geojson'
 
     data = get_data(path)
-    geofile = get_geofile('zipcode_area.geojson')
+    geofile = get_geofile(url)
     
     #geofile = get_geofile(url)
 
