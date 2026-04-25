@@ -19,22 +19,15 @@ st.title("House Rocket Project")
 tab0, tab1, tab2, tab3 = st.tabs(['🛕 Home', '📜 Visao Geral', '📉 Hipoteses', '🧠Questoes de Negocios'])
 
 #import data
-@st.cache_data()
+@st.cache_data
 def get_data(path):
     data = pd.read_csv(path)
 
     return data
 
-@st.cache_data()
+@st.cache_data
 def get_geofile(url):
-    try:
-        geofile = gpd.read_file(url)
-        return geofile
-    except Exception as e:
-        print(f"Erro ao carregar geofile: {e}")
-        raise e
-    
-#geofile = geopandas.read_file(url)
+    geofile = geopandas.read_file(url)
 
     return geofile
 
