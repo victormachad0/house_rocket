@@ -19,13 +19,13 @@ st.title("House Rocket Project")
 tab0, tab1, tab2, tab3 = st.tabs(['🛕 Home', '📜 Visao Geral', '📉 Hipoteses', '🧠Questoes de Negocios'])
 
 #import data
-@st.cache_data(allow_output_mutation=True)
+@st.cache_data
 def get_data(path):
     data = pd.read_csv(path)
 
     return data
 
-@st.cache_data(allow_output_mutation=True)
+@st.cache_data
 def get_geofile(url):
     try:
         geofile = gpd.read_file(url)
