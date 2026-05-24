@@ -1,5 +1,5 @@
 <h1 align="center">
-  House Rocket - Projeto de Insights
+  House Rocket
 </h1>
 
 <h3 align="center">
@@ -10,77 +10,75 @@ https://house-rocket-sales.streamlit.app/
   <img alt="houserocketlogo" title="#logo" src="./images/houses.png" />
 </h1>
 
-## 1. Introdução ao problema de negócio
+## 1. Introduction to the business problem.
     
-A House Rocket é uma empresa localizada em King County, Washington e tem como modelo de negócio
-a compra e venda de imóveis, sua príncipal estratégia é a compra de imóveis com preços baixos para posteriormente realizar a venda destes por um preço maior.
+The House Rocket is a company located in King County, Washington, whose business model is buying and selling real estate.
+Its main strategy is to purchase properties at low prices, make basic renovations when necessary, and later sell them for a higher price.
    
-Para auxiliar o time de negócios na tomada de decisões sobre a compra e venda dos imóveis, iremos realizar uma 
-analise sobre os dados dos imóveis a venda em King County, pois quanto maior a diferença entre o preço de compra
-e o preço de venda, maior o lucro da empresa e portanto maior sua receita.
+To help the business team make decisions regarding the purchase and sale of properties, we are going to analyze data from properties for sale in King County. The greater the difference between the purchase price and the selling price, the higher the company’s profit and, consequently, its revenue.
 
-### 1.1 Questões do negócio
-   - Quais imóveis a House Rocket deveria comprar e por qual preço?
-   - Uma vez comprado, qual o melhor momento para vende-los e por qual preço?
+### 1.1 Business Questions
+   - Which properties should House Rocket buy, and at what price?
+   - Once purchased, when is the best time to sell them, and for what price?
    
-## 2. Premissas do negócio
-   - Imóveis com data de reforma igual a 0 são imóveis que nunca foram reformados
-   - Imóveis com 33 quartos foram considerados um erro de digitação e alterados para 3 quartos
-   - Imóveis com 0 banheiros não nos interessam e foram descartados
-   - Id’s duplicados foram removidos, considerando somente a venda mais recente
+## 2. Business Assumptions
+   - Properties with a renovation date equal to 0 are considered properties that were never renovated.
+   - Properties with 33 bedrooms were considered a typing error and changed to 3 bedrooms.
+   - Properties with 0 bathrooms are not relevant to us and were removed from the analysis.
+   - Duplicate IDs were removed, considering only the most recent sale.
    
-## 3. Planejamento da Solução
+## 3. Solution Planning
    
-  ### 3.1 Entrega final
-   - Tabela informando quais os melhores imóveis para compra dentro do nosso porfólio
-   - Tabela informando qual o melhor momento para vender os imóveis e também o preço recomendado
+  ### 3.1 Final Deliverables
+   - A table containing the best properties to purchase within our portfolio.
+   - A table indicating the best time to sell the properties, as well as the recommended selling price.
   
-  ### 3.2 Ferramentas utilizadas
+  ### 3.2 Tools Used in the project.
    - Python 3.9
    - Jupyter Notebook
    - Pycharm
    - Streamlit
    - Streamlit Cloud
    
-  ### 3.3 Processo até a solução
-   - Com os dados já tratados, foi feito um agrupamento por região, e dentro de cada região foi identificado o preço mediano dos imóveis. 
-      - Foi sugerido então, que imóveis abaixo do preço mediano de cada região e que estivessem em boas condições, fossem comprados.
+  ### 3.3 Process Until the Solution
+   - With the cleaned data, a grouping by region was performed, and within each region, the median property price was identified.
+      - It was then suggested that properties priced below the median of each region and in good condition should be purchased.
    
-   - Realizar um novo agrupamento por região e sazonalidade, calcular novamente a mediana dos preços baseado nessas duas features e:
+   - A new grouping by region and seasonality was performed, and the median prices were recalculated based on these two features:
       
-      - Se o preço de compra estiver maior do que o da média da região + sazonalidade, irei vender os imóveis com um adicional de 10% no preço.
+      - If the purchase price is higher than the regional and seasonal average price, the properties will be sold with an additional 10% markup.
       
-      - Se o preço de compra estiver menor do que o da média da região + sazonalidade, irei vender os imóveis com um adicional de 30% no preço.
+      - If the purchase price is lower than the regional and seasonal average price, the properties will be sold with an additional 30% markup.
    
-## 4. Os 5 principais insights de negócio
+## 4. The Five Main Business Insights
 
-   - **H1:** Imóveis que possuem vista para água, são 30% mais caros, na média.
+   - **H1:** Properties with an ocean view are, on average, 30% more expensive than properties without an ocean view.
       
-      ✔️ **Verdadeira:** Casas com vista pro mar são até 220% mais caras na media
+      ✔️ **True:** Houses with an ocean view are, on average, up to 220% more expensive than other properties.
    
-   - **H2:** Imóveis com vista 'regular' são mais são 30% mais baratos do que com vista 'boa'
+   - **H2:** Properties with a “regular” view are 30% cheaper than properties with a “good” view.
       
-      ✔️ **Verdadeira:** Imóveis com vista regular são até 45% mais baratos do que imóveis com uma vista boa
+      ✔️ **True:** Properties with a regular view are up to 45% cheaper than properties with a good view.
    
-   - **H3:** Imóveis que nunca foram reformados são 20% mais baratos do que imóveis que nunca tiveram reforma
+   - **H3:** Properties that were never renovated are 20% cheaper than renovated properties.
       
-      ✔️ **Verdadeira:** Imóveis que nunca foram reformados são até 43% mais baratos do que imóveis que já passaram por alguma reforma
+      ✔️ **True:** Properties that were never renovated are up to 43% cheaper than properties that have undergone renovations.
    
-   - **H4:** Imóveis no inverno sofrem uma desvalorização de 20% no preço total com relação ao outono
+   - **H4:** During winter, properties depreciate by approximately 20% compared to autumn.
       
-      ✔️ **Verdadeira:** Imóveis no inverno sofrem uma desvalorização de quase 30% no preço total com relação ao outono
+      ✔️ **True:** During winter, properties depreciate by almost 30% compared to autumn.
    
-   - **H5:** Imóveis sem porão possuem sqft_lot 40% maiores do que com porão.
+   - **H5:** Properties without a basement have lot sizes (sqft_lot) 40% larger than properties with a basement.
       
-      ❌ **Falsa:** Imóveis sem porão possuem sqft_lot somente até 22% maiores do que com porão
+      ❌ **False:** Properties without a basement have lot sizes only up to 22% larger than properties with a basement.
 
 
-## 5. Resultados financeiros para o negócio
+## 5. Financial Results for the Business
 
-| Preço total de compra  |  Preço total de venda   |   Lucratividade total   |
+| Total Purchase Price |  Total Selling Price  |   Total Profit  |
 |------------------------|-------------------------|-------------------------|
 |     $179.537.408,00    |      $209.320.208,00     |      $29.782.800,00       |
 
 
 
-Meu linkedin: https://www.linkedin.com/in/victor-machado1/
+My LinkedIn: https://www.linkedin.com/in/victor-machado1/
