@@ -16,7 +16,7 @@ st.set_page_config(page_title= 'House Rocket Project', layout='wide')
 
 st.title("House Rocket Project")
 #tabs
-tab0, tab1, tab2, tab3 = st.tabs(['🛕 Home', '📜 Visao Geral', '📉 Hipoteses', '🧠Questoes de Negocios'])
+tab0, tab1, tab2, tab3 = st.tabs(['🛕 Home', '📜 Overview', '📉 Hypothesis', '🧠Business Questions'])
 
 #import data
 @st.cache_data
@@ -84,27 +84,26 @@ def primeira_pagina():
         st.image('./images/houses.png')
 
 
-        st.info('Nota: Os dados utilizados nesse projeto são dados ficticios, porem a solução foi desenvolvida pensando em casos reais!')
+        st.info('Note: The data used in this project are fictitious; however, the solution was developed with real-world cases in mind.')
 
-        st.header("Conhecendo melhor a House Rocket")
+        st.header("Getting to know House Rocket better")
 
         st.markdown("<p style='font-size:18px'>"
-                    "A House Rocket é uma empresa localizada em King County, Washington e tem como modelo de negócio "
-                    "a compra e venda de imóveis, sua príncipal estratégia é a compra de imóveis com preços baixos para posteriormente realizar a venda destes por um preço maior."
+                    "The House Rocket is a company located in King County, Washington, whose business model is buying and selling real estate."
+                    "Its main strategy is to purchase properties at low prices, make basic renovations when necessary, and later sell them for a higher price."
                     "</p>", unsafe_allow_html=True)
 
         st.markdown("<p style='font-size:18px'>"
-                    "Para auxiliar o time de negócios na tomada de decisões sobre a compra e venda dos imóveis, iremos realizar uma analise sobre "
-                    "os dados dos imóveis a venda em King County, pois quanto maior a diferença entre o preço de compra e o preço de venda, maior "
-                    "o lucro da empresa e portanto maior sua receita."
+                    "To help the business team make decisions regarding the purchase and sale of properties, we are going to analyze data from properties for sale in King County."
+                    "The greater the difference between the purchase price and the selling price, the higher the company’s profit and, consequently, its revenue."
                     "</p>", unsafe_allow_html=True)
 
-        st.subheader("O projeto aborda duas principais questões de negócios:")
+        st.subheader("The project addresses two main business questions:")
 
         st.markdown("<ul>"
                     "<li>"
                     "<p style='font-size:18px'>"
-                    "Quais imóveis a House Rocket deveria comprar e por qual preço?"
+                    "Which properties should House Rocket buy, and at what price?"
                     "</p>"
                     "</li>"
                     "</ul>", unsafe_allow_html=True)
@@ -112,17 +111,17 @@ def primeira_pagina():
         st.markdown("<ul>"
                     "<li>"
                     "<p style='font-size:18px'>"
-                    "Uma vez comprado, qual o melhor momento para vende-los e por qual preço?"
+                    "Once purchased, when is the best time to sell them, and for what price?"
                     "</p>"
                     "</li>"
                     "</ul>", unsafe_allow_html=True)
 
 
-        st.subheader("Resultados financeiros obtidos:")
+        st.subheader("Financial Results for the Business:")
 
         values  = [['$179.537.408,00'], ['$33.658.210,00']]
         values2 = [['$209.320.208,00'], ['$29.782.800,00']]
-        values3 = [['outono', 'primavera', 'verão', 'inverno'],
+        values3 = [['autumn', 'spring', 'summer', 'winter'],
                    ['$49.933.865,00', '$49.399.426,00', '$78.222.913,00', '$31.764.003,00']]
 
         #table 1
@@ -132,8 +131,8 @@ def primeira_pagina():
             columnorder=[1, 2],
             columnwidth=[100, 150],
             header=dict(
-                values=[['<b>Gasto na compra dos imóveis</b>'],
-                        ['<b>Economizado</b>']],
+                values=[['<b>Total Purchase Price</b>'],
+                        ['<b>Money saved</b>']],
                 line_color='black',
                 fill_color=['#F0F8FF'],
                 align=['center', 'center'],
@@ -148,7 +147,6 @@ def primeira_pagina():
                 font=dict(color=['black'], size=18),
                 height=40))])
 
-        table.update_layout(height=160, margin = dict(l=5, r=0, b=1, t=50),  title = 'Valor total gasto na compra dos imóveis + economias', title_font_size = 25)
         c1.plotly_chart(table, use_container_width=True)
 
         #table 2
@@ -158,8 +156,8 @@ def primeira_pagina():
             columnorder=[1, 2],
             columnwidth=[100, 150],
             header=dict(
-                values=[['<b>Adquirido na venda dos imóveis</b>'],
-                        ['<b>Lucro</b>']],
+                values=[['<b>Total Selling Price</b>'],
+                        ['<b>Total Profit</b>']],
                 line_color='black',
                 fill_color=['#F0F8FF'],
                 align=['center', 'center'],
@@ -174,7 +172,6 @@ def primeira_pagina():
                 font=dict(color=['black'], size=18),
                 height=40))])
 
-        table2.update_layout(height=150, margin = dict(l=5, r=1, b=1, t=35), title = 'Valor total obtido na venda dos imóveis + lucro obtido', title_font_size = 25)
         c1.plotly_chart(table2, use_container_width=True)
 
 
@@ -184,8 +181,8 @@ def primeira_pagina():
         table3 = go.Figure(data=[go.Table(
             columnwidth=[100, 150],
             header=dict(
-                values=[['<b>Sazonalidade</b>'],
-                        ['<b>Preço de venda</b>']],
+                values=[['<b>seasonality</b>'],
+                        ['<b>Selling price</b>']],
                 line_color='black',
                 fill_color=['#F0F8FF'],
                 align=['center', 'center'],
@@ -200,20 +197,19 @@ def primeira_pagina():
                 font=dict(color=['black'], size=18),
                 height=40))])
 
-        table3.update_layout(height=400, margin = dict(l=5, r=1, b=1, t=35),  title = 'Valor total de venda dos imóveis por sazonalidade', title_font_size = 25)
         c1.plotly_chart(table3, use_container_width=True)
 
         return None
 
 def segunda_pagina(data):
     with tab1:
-        st.header('Visualização dos dados')
-        st.sidebar.header('Visão Geral')
+        st.header('Data Visualization')
+        st.sidebar.header('Overview')
 
         # Data Overview
-        f_attributes = st.sidebar.multiselect('Selecione a coluna', data.columns)
+        f_attributes = st.sidebar.multiselect('Select a column', data.columns)
 
-        f_zipcode = st.sidebar.multiselect('Insira o zipcode', data['zipcode'].unique())
+        f_zipcode = st.sidebar.multiselect('Enter the zipcode', data['zipcode'].unique())
 
         if (f_zipcode != []) & (f_attributes != []):
             data = data.loc[data['zipcode'].isin(f_zipcode), f_attributes]
@@ -243,9 +239,9 @@ def segunda_pagina(data):
         m1 = pd.merge(df1, df2, on='zipcode', how='inner')
         m2 = pd.merge(m1, df3, on='zipcode', how='inner')
         df = pd.merge(m2, df4, on='zipcode', how='inner')
-        df.columns = ['zipcode', 'total_casas', 'preço', 'espaço interno', 'preço/m2']
+        df.columns = ['zipcode', 'total_properties', 'price', 'internal_space', 'price_per_m²']
 
-        c1.header('Médias por região')
+        c1.header('Average by Region')
         c1.dataframe(df, height=450)
 
         # Statistic Attributes
@@ -260,7 +256,7 @@ def segunda_pagina(data):
         statistics_describe = pd.concat([max_, min_, mean, median, std], axis=1).reset_index()
         statistics_describe.columns = ['attributes', 'max', 'min', 'mean', 'median', 'std']
 
-        c2.header('Estatisticas Descritivas')
+        c2.header('Descriptive Statistics')
         c2.dataframe(statistics_describe, height=450)
 
 
@@ -269,22 +265,20 @@ def segunda_pagina(data):
                        'grade', 'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated', 'zipcode', 'lat', 'long', 'sqft_living15', 'sqft_lot15'],
 
 
-                      ['Identificação única de cada imóvel', 'Data em que o imóvel foi vendido', 'Preço de venda do imóvel', 'Quantidade de quartos', 'Quantidade de banheiros',
-                       'Pés quadrados do espaço interior do imóvel', 'Pés quadrados do espaço do terreno', 'Número de andares de cada imóvel', 'Informa se o imóvel possui vista para a agua',
-                       'Um indice de 0 a 4 de quão boa é a vista do imóvel', 'Um indice de 0 a 5 da condição em que o imóvel se encontra',
-                       'Índice de 1 a 13, onde 1-3 fica aquém da construção e design de edifícios, 7 tem um nível médio de construção e design e 11-13 tem um alto nível de construção e design.',
-                       'Ano de construção do imóvel', 'Ano em que foi feita a última reforma do imóvel', 'Área do codigo postal onde os imóveis se localizam', 'Latitude', 'Longitude',
-                       'Pés quadrados do espaço habitacional interior para os 15 vizinhos mais próximos', 'Pés quadrados dos lotes dos 15 vizinhos mais próximos', 'Sem tradução', 'Sem tradução']]
+                 ['Unique identifier for each property', 'Date when the property was sold', 'Property selling price', 'Number of bedrooms', 'Number of bathrooms', "Square footage of the property's interior living space",
+                  'Square footage of the land area', 'Number of floors in each property', 'Indicates whether the property has a waterfront view', "An index from 0 to 4 representing the quality of the property's view", 'An index from 0 to 5 representing the condition of the property',
+                   "An index from 1 to 13, where 1–3 falls below average in construction and design, 7 represents an average level of construction and design, and 11–13 represents a high level of construction and design", 'Year the property was built',
+                    "Year of the property's last renovation", 'ZIP code area where the properties are located', 'Latitude', 'Longitude', 'Square footage of the interior living area of the 15 nearest neighboring properties', 'Square footage of the lots of the 15 nearest neighboring properties',
+                     'No translation', 'No translation']]
 
-
-        with st.expander("Descrição das colunas"):
+        with st.expander("Columns description"):
 
 
             fig = go.Figure(data=[go.Table(
                 columnwidth=[80, 400],
                 header=dict(
-                    values=[['<b>Nome</b>'],
-                            ['<b>Significado</b>']],
+                    values=[['<b>Name</b>'],
+                            ['<b>Meaning</b>']],
                     line_color='black',
                     fill_color=['#F0F8FF'],
                     align=['left', 'left'],
@@ -306,7 +300,7 @@ def segunda_pagina(data):
 
 def terceira_pagina(data):
     with tab2:
-        st.header('Validação de Hipoteses')
+        st.header('Hypothesis Validation')
 
         # Agrupamento dos dados para gerar as hipoteses
         h1 = data[['waterfront', 'price']].groupby('waterfront').mean().reset_index()
@@ -343,10 +337,10 @@ def terceira_pagina(data):
         # Plots
         c1, c2 = st.columns(2)
 
-        c1.subheader('H1: Imóveis que possuem vista para água são 30% mais caros, na média')
+        c1.subheader('H1: Properties with an ocean view are, on average, 30% more expensive than properties without an ocean view.')
 
         c1.markdown("<p style='font-size:18px'>"
-                    "✔️<b>Hipotese confirmada:</b> Imóveis com vista para o mar são até 220% mais caros na média"
+                    "✔️<b>True:</b> Houses with an ocean view are, on average, up to 220% more expensive than other properties."
                     "</p>", unsafe_allow_html=True)
 
         fig1 = px.bar(h1,
@@ -358,8 +352,8 @@ def terceira_pagina(data):
                       )
 
         fig1.update_layout(coloraxis_showscale=False,
-                           xaxis_title="Vista para o mar",
-                           yaxis_title="Preço",
+                           xaxis_title="Ocean view",
+                           yaxis_title="Price",
                            font=dict(size= 15)
                            )
 
@@ -367,21 +361,21 @@ def terceira_pagina(data):
 
 
 
-        c2.subheader('H2: Imóveis com data de construção menor que 1955 são 50% mais baratos, na média')
+        c2.subheader('H2: Properties built before 1955 are, on average, 50% less expensive')
 
         c2.markdown("<p style='font-size:18px'>"
-                    "❌ <b>Hipotese refutada:</b> Os imóveis não apresentaram mudança na diferença de preço, são equiparáveis"
+                    "❌ <b>False:</b> The properties did not show a significant price difference; they are comparable."
                     "</p>", unsafe_allow_html=True)
 
         fig2 = px.bar(h2,
-                      x='menor_1955',
+                      x='before_1955',
                       y='price',
                       height= 600,
                       color='menor_1955',
                       color_continuous_scale=['#DECBE4', '#CCEBC5'])
 
         fig2.update_layout(coloraxis_showscale=False,
-                           xaxis_title="Imóveis construídos abaixo de 1955",
+                           xaxis_title="Properties built before 1955",
                            yaxis_title="Preço",
                            font=dict(size=15)
                            )
@@ -389,19 +383,18 @@ def terceira_pagina(data):
         c2.plotly_chart(fig2, use_container_width=True)
 
 
-        st.subheader('H3: Independente da condição, os imóveis valorizam cerca de 10% ao ano')
+        st.subheader('H3: Regardless of their condition, properties increase in value by around 10% per year.')
 
         st.markdown("<p style='font-size:18px'>"
-                    "❌ <b>Hipotese refutada:</b> Independente das condições, todos os imóveis apresentaram uma desvalorização com"
-                    "relação ao mesmo mês do ano anterior"
+                    "❌ <b>False:</b> Regardless of their condition, all properties depreciated compared to the same month of the previous year."
                     "</p>", unsafe_allow_html=True)
 
         fig3 = make_subplots(rows=3, cols=1,
                              specs=[[{}], [{}], [{}]],
                              print_grid=True,
-                             subplot_titles=('Variação do preço de imóveis com condições ruins ao longo do ano',
-                                             'Variação do preço de imóveis com condições regulares ao longo do ano',
-                                             'Variação do preço de imóveis com condições boas ao longo do ano'))
+                             subplot_titles=('Price fluctuation of properties in poor condition throughout the year',
+                                             'Price fluctuation of properties in regular condition throughout the year',
+                                             'Price fluctuation of properties in good condition throughout the year'))
 
 
         fig3.add_trace(go.Scatter(x=h3_bad['year_month'], y=h3_bad['price']), row=1, col=1)
