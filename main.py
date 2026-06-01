@@ -429,10 +429,10 @@ def terceira_pagina(data):
                     "</p>", unsafe_allow_html=True)
 
         fig4 = px.bar(h4,
-                      x='basement',
+                      x='porao',
                       y='sqft_lot',
                       height= 600,
-                      color='basement',
+                      color='porao',
                       color_discrete_sequence= ['#DECBE4', '#CCEBC5']
                       )
 
