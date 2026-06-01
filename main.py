@@ -380,7 +380,7 @@ def terceira_pagina(data):
                       x='menor_1955',
                       y='price',
                       height= 600,
-                      color='before_1955',
+                      color='menor_1955',
                       color_continuous_scale=['#DECBE4', '#CCEBC5'])
 
         fig2.update_layout(coloraxis_showscale=False,
