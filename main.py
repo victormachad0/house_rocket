@@ -377,7 +377,7 @@ def terceira_pagina(data):
                     "</p>", unsafe_allow_html=True)
 
         fig2 = px.bar(h2,
-                      x='before_1955',
+                      x='menor_1955',
                       y='price',
                       height= 600,
                       color='before_1955',
