@@ -486,7 +486,7 @@ def terceira_pagina(data):
 
         c6.plotly_chart(fig6, use_container_width=True)
 
-        c7.subheader('H7: Properties that have never been renovated are up to 20% cheaper than renovated properties.)
+        c7.subheader('H7: Properties that have never been renovated are up to 20% cheaper than renovated properties.')
 
         c7.markdown("<p style='font-size:18px'>"
                     "✔️<b>True:</b> Properties that have never been renovated are up to 43% cheaper than renovated properties."
