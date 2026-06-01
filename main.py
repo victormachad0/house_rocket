@@ -147,6 +147,7 @@ def primeira_pagina():
                 font=dict(color=['black'], size=18),
                 height=40))])
 
+        table.update_layout(height=160, margin = dict(l=5, r=0, b=1, t=50),  title = 'Total amount invested in property purchases + savings', title_font_size = 25)
         c1.plotly_chart(table, use_container_width=True)
 
         #table 2
@@ -171,7 +172,8 @@ def primeira_pagina():
                 align=['center', 'center'],
                 font=dict(color=['black'], size=18),
                 height=40))])
-
+        
+        table2.update_layout(height=150, margin = dict(l=5, r=1, b=1, t=35), title = 'Total proceeds from property sales + total profit', title_font_size = 25)
         c1.plotly_chart(table2, use_container_width=True)
 
 
@@ -197,6 +199,7 @@ def primeira_pagina():
                 font=dict(color=['black'], size=18),
                 height=40))])
 
+        table3.update_layout(height=400, margin = dict(l=5, r=1, b=1, t=35),  title = 'Total property sales amount by seasonality', title_font_size = 25)
         c1.plotly_chart(table3, use_container_width=True)
 
         return None
@@ -371,12 +374,12 @@ def terceira_pagina(data):
                       x='before_1955',
                       y='price',
                       height= 600,
-                      color='menor_1955',
+                      color='before_1955',
                       color_continuous_scale=['#DECBE4', '#CCEBC5'])
 
         fig2.update_layout(coloraxis_showscale=False,
                            xaxis_title="Properties built before 1955",
-                           yaxis_title="Preço",
+                           yaxis_title="Price",
                            font=dict(size=15)
                            )
 
@@ -413,33 +416,33 @@ def terceira_pagina(data):
 
         c4, c5 = st.columns(2)
 
-        c4.subheader('H4: Imóveis sem porão possuem terrenos 40% maiores do que com porão')
+        c4.subheader('H4: Properties without basements have 40% larger lots than properties with basements.')
 
         c4.markdown("<p style='font-size:18px'>"
-                    "❌ <b>Hipotese refutada:</b> Imóveis sem porão possuem terreno até 22% maiores do que com porão "
+                    "❌ <b>False:</b> Properties without basements have lots up to 22% larger than those with basements."
                     "</p>", unsafe_allow_html=True)
 
         fig4 = px.bar(h4,
-                      x='porao',
+                      x='basement',
                       y='sqft_lot',
                       height= 600,
-                      color='porao',
+                      color='basement',
                       color_discrete_sequence= ['#DECBE4', '#CCEBC5']
                       )
 
         fig4.update_layout(showlegend = False,
-                           xaxis_title="Porão",
-                           yaxis_title="Tamanho do terreno",
+                           xaxis_title="Basement",
+                           yaxis_title="Lot size",
                            font=dict(size=15)
                            )
 
         c4.plotly_chart(fig4, use_container_width=True)
 
 
-        c5.subheader('H5: Imóveis com vista regular são 30% mais baratos do que casas com vista boa')
+        c5.subheader('H5: Properties with a regular view are 30% cheaper than those with a good view.')
 
         c5.markdown("<p style='font-size:18px'>"
-                    "✔️<b>Hipotese confirmada:</b> Imóveis com vista regular são até 45% mais baratos do que imóveis com vista boa"
+                    "✔️<b>True:</b> Properties with a regular view are up to 45% cheaper than those with a good view."
                     "</p>", unsafe_allow_html=True)
 
         fig5 = px.bar(h5,
@@ -451,8 +454,8 @@ def terceira_pagina(data):
                       )
 
         fig5.update_layout(showlegend = False,
-                           xaxis_title="Qualidade da vista do imóvel",
-                           yaxis_title="Preço",
+                           xaxis_title="Property View Quality",
+                           yaxis_title="Price",
                            font=dict(size=15)
                            )
 
@@ -461,68 +464,67 @@ def terceira_pagina(data):
 
         c6, c7 = st.columns(2)
 
-        c6.subheader('H6: No verão os imóveis tem uma valorização de 20% com relação a primavera')
+        c6.subheader('H6: During the summer, property values are 20% higher than in the spring.')
 
         c6.markdown("<p style='font-size:18px'>"
-                    "❌ <b>Hipotese refutada:</b> Imóveis no verão tem uma queda não significativa de 3% com relação a primavera"
+                    "❌ <b>False:</b> During the summer, property values show a non-significant 3% decrease compared to the spring."
                     "</p>", unsafe_allow_html=True)
 
         fig6 = px.bar(h6,
-                      x='sazonalidade',
+                      x='seasonality',
                       y='price',
                       height= 600,
-                      color='sazonalidade',
+                      color='seasonality',
                       color_discrete_sequence= ['#DECBE4', '#CCEBC5', '#B3CDE3', '#E5D8BD']
                       )
 
         fig6.update_layout(showlegend = False,
-                           xaxis_title="Estação do ano",
-                           yaxis_title="Preço",
+                           xaxis_title="Season",
+                           yaxis_title="Price",
                            font=dict(size=15)
                            )
 
         c6.plotly_chart(fig6, use_container_width=True)
 
-        c7.subheader('H7: Imóveis nunca reformados são 20% mais baratos do que imóveis já reformados')
+        c7.subheader('H7: Properties that have never been renovated are up to 20% cheaper than renovated properties.)
 
         c7.markdown("<p style='font-size:18px'>"
-                    "✔️<b>Hipotese confirmada:</b> Imóveis que nunca foram reformados são até 43% mais baratos do que imóveis já reformados"
+                    "✔️<b>True:</b> Properties that have never been renovated are up to 43% cheaper than renovated properties."
                     "</p>", unsafe_allow_html=True)
 
         fig7 = px.bar(h7,
-                      x='reformado',
+                      x='renovated',
                       y='price',
                       height= 600,
-                      color='reformado',
+                      color='renovated',
                       color_continuous_scale=['#DECBE4', '#CCEBC5'])
 
         fig7.update_layout(coloraxis_showscale=False,
-                           xaxis_title="Reformado",
-                           yaxis_title="Preço",
+                           xaxis_title="Renovated",
+                           yaxis_title="Price",
                            font=dict(size=15)
                            )
 
         c7.plotly_chart(fig7, use_container_width=True)
 
 
-        st.subheader('H8: Imóveis no inverno sofrem uma desvalorização de 20% no preço total com relação ao outono')
+        st.subheader('H8: Property values decrease by 20% during the winter compared to the autumn.')
 
         st.markdown("<p style='font-size:18px'>"
-                    "✔️<b>Hipotese confirmada:</b> Imóveis no inverno sofrem uma desvalorização de quase 30% no preço total"
-                    "com relação ao outono"
+                    "✔️<b>True:</b> During the winter, property values decrease by almost 30% compared to the autumn."
                     "</p>", unsafe_allow_html=True)
 
         fig8 = px.bar(h8,
                       x='year_month',
                       y='price',
-                      color='sazonalidade',
+                      color='seasonality',
                       color_discrete_sequence=['#DECBE4', '#CCEBC5', '#B3CDE3', '#E5D8BD'],
-                      hover_name='sazonalidade',
+                      hover_name='seasonality',
                       height= 600)
 
         fig8.update_layout(showlegend = False,
-                           xaxis_title="Mês do ano",
-                           yaxis_title="Preço",
+                           xaxis_title="Month of the year",
+                           yaxis_title="Price",
                            font=dict(size=15)
                            )
         st.plotly_chart(fig8, use_container_width=True)
@@ -534,12 +536,12 @@ def quarta_pagina(data, geofile):
 
         c1, c2 = st.columns(2)
 
-        c1.subheader('Tabela de compra')
+        c1.subheader('Purchases Table')
 
         c1.markdown("<p style='font-size:18px'>"
-                        "Com as recomendações dos melhores imóveis para compra, onde foi utilizando um critério de compra para"
-                        " imóveis que estivessem com o preço abaixo da mediana da região, com condição maior ou igual a três, contendo dois"
-                        " ou mais quartos e pisos"
+                        "With recommendations for the best properties to purchase, using a selection criterion that prioritizes"
+                        " properties priced below the regional median, with a condition rating of at least three, and featuring two"
+                        " or more bedrooms and floors."
                     "</p>", unsafe_allow_html=True)
 
         # Separando as variaveis que irei usar para construção da minha tabela de compra
@@ -563,21 +565,21 @@ def quarta_pagina(data, geofile):
                 df_compra.loc[i, 'status'] = 0
 
         # Criando a feature 'economia' que me indicará quanto economizei na compra do imóvel baseados no preço e preço mediano
-        df_compra['economia'] = df_compra[['price', 'median_price']].apply(lambda x: x['median_price'] - x['price'], axis=1)
+        df_compra['savings'] = df_compra[['price', 'median_price']].apply(lambda x: x['median_price'] - x['price'], axis=1)
 
         # Selecionando apenas meus imóveis que estão aptos para compra
         df_compra = df_compra.loc[df_compra['status'] == 1, :].copy()
-        tabela_compra = df_compra[['id', 'zipcode', 'price', 'median_price', 'condition', 'status', 'economia']].copy()
-        tabela_compra.columns = ['id', 'zipcode', 'preço', 'preço mediano', 'condição', 'comprar', 'economizado']
+        tabela_compra = df_compra[['id', 'zipcode', 'price', 'median_price', 'condition', 'status', 'savings']].copy()
+        tabela_compra.columns = ['id', 'zipcode', 'price', 'median price', 'condition', 'purchase', 'saved']
 
         c1.dataframe(tabela_compra)
 
 
-        c2.subheader('Tabela de Venda')
+        c2.subheader('Sales table')
 
         c2.markdown("<p style='font-size:18px'>"
-                   'O critério de venda dos imóveis foi de que imóveis que estivessem abaixo da mediana da região seriam vendidos'
-                    ' com adição de 30% do seu valor no preço final, e imóveis que esteajam acima da mediana terão uma adição de 10%'
+                   'The sales strategy established that properties priced below the regional median would be sold'
+                    ' with a 30% increase over their original value, whereas properties priced above the regional median would receive a 10% increase in their final selling price.'
                     "</p>", unsafe_allow_html=True)
 
         df_venda = df_compra[['id', 'price', 'zipcode', 'sazonalidade']].copy()
@@ -596,7 +598,7 @@ def quarta_pagina(data, geofile):
 
         lucro_por_estacao = df_venda[['sazonalidade', 'preco_venda']].groupby('sazonalidade').sum().reset_index()
 
-        df_venda.columns = ['id', 'preço', 'zipcode', 'sazonalidade', 'preço mediano', 'preço de venda', 'lucro']
+        df_venda.columns = ['id', 'preço', 'zipcode', 'seasonality', 'median price', 'sale price', 'profit']
         c2.dataframe(df_venda)
 
 
@@ -604,17 +606,17 @@ def quarta_pagina(data, geofile):
         c3, c4, c5, c6 = st.columns((13, 30, 13, 30))
 
 
-        c3.metric(label="Gasto total da compra", value="$179.537.408,00")
-        c4.metric(label="Total economizado", value="$33.658.210,00")
-        c5.metric(label="Valor total de venda", value="$209.320.208,00")
-        c6.metric(label="Lucro total", value="$29.782.800,00")
+        c3.metric(label="Total purchase amount", value="$179.537.408,00")
+        c4.metric(label="Total amount saved", value="$33.658.210,00")
+        c5.metric(label="Total sales amount", value="$209.320.208,00")
+        c6.metric(label="Total profit", value="$29.782.800,00")
 
 
 
         c7, c8 = st.columns(2)
 
         # Mapa de densidade dos imóveis para compra
-        c7.subheader('Portfólio de imóveis para compra')
+        c7.subheader('Property portfolio for purchase')
 
         df_sample = df_compra.copy()
 
@@ -638,7 +640,7 @@ def quarta_pagina(data, geofile):
             folium_static(density_map)
 
             # Mapa de calor
-            c8.subheader('Mapa de calor do preço dos imóveis')
+            c8.subheader('Property prices heatmap')
 
             heat_map = df_sample[['zipcode', 'price']].groupby('zipcode').mean().reset_index()
             heat_map.columns = ['ZIP', 'PRICE']
