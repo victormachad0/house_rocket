@@ -134,6 +134,7 @@ def primeira_pagina():
                 values=[['<b>Total Purchase Price</b>'],
                         ['<b>Money saved</b>']],
                 line_color='black',
+                line_width=2,
                 fill_color=['#F0F8FF'],
                 align=['center', 'center'],
                 font=dict(color='black', size=20),
@@ -142,6 +143,7 @@ def primeira_pagina():
             cells=dict(
                 values=values,
                 line_color='darkslategray',
+                line_width=2,
                 fill=dict(color=['white']),
                 align=['center', 'center'],
                 font=dict(color=['black'], size=18),
