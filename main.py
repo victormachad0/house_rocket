@@ -477,10 +477,10 @@ def terceira_pagina(data):
                     "</p>", unsafe_allow_html=True)
 
         fig6 = px.bar(h6,
-                      x='seasonality',
+                      x='sazonalidade',
                       y='price',
                       height= 600,
-                      color='seasonality',
+                      color='sazonalidade',
                       color_discrete_sequence= ['#DECBE4', '#CCEBC5', '#B3CDE3', '#E5D8BD']
                       )
 
@@ -499,10 +499,10 @@ def terceira_pagina(data):
                     "</p>", unsafe_allow_html=True)
 
         fig7 = px.bar(h7,
-                      x='renovated',
+                      x='reformado',
                       y='price',
                       height= 600,
-                      color='renovated',
+                      color='reformado',
                       color_continuous_scale=['#DECBE4', '#CCEBC5'])
 
         fig7.update_layout(coloraxis_showscale=False,
