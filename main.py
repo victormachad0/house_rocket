@@ -162,6 +162,7 @@ def primeira_pagina():
                 values=[['<b>Total Selling Price</b>'],
                         ['<b>Total Profit</b>']],
                 line_color='black',
+                line_width=2,
                 fill_color=['#F0F8FF'],
                 align=['center', 'center'],
                 font=dict(color='black', size=20),
@@ -170,6 +171,7 @@ def primeira_pagina():
             cells=dict(
                 values=values2,
                 line_color='darkslategray',
+                line_width=2,
                 fill=dict(color=['white']),
                 align=['center', 'center'],
                 font=dict(color=['black'], size=18),
@@ -188,6 +190,7 @@ def primeira_pagina():
                 values=[['<b>seasonality</b>'],
                         ['<b>Selling price</b>']],
                 line_color='black',
+                line_width=2,
                 fill_color=['#F0F8FF'],
                 align=['center', 'center'],
                 font=dict(color='black', size=20),
@@ -196,6 +199,7 @@ def primeira_pagina():
             cells=dict(
                 values=values3,
                 line_color='darkslategray',
+                line_width=2,
                 fill=dict(color=['white']),
                 align=['center', 'center'],
                 font=dict(color=['black'], size=18),
