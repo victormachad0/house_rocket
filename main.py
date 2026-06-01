@@ -525,7 +525,7 @@ def terceira_pagina(data):
                       y='price',
                       color='sazonalidade',
                       color_discrete_sequence=['#DECBE4', '#CCEBC5', '#B3CDE3', '#E5D8BD'],
-                      hover_name='seasonality',
+                      hover_name='sazonalidade',
                       height= 600)
 
         fig8.update_layout(showlegend = False,
