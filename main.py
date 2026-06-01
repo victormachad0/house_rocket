@@ -523,7 +523,7 @@ def terceira_pagina(data):
         fig8 = px.bar(h8,
                       x='year_month',
                       y='price',
-                      color='seasonality',
+                      color='sazonalidade',
                       color_discrete_sequence=['#DECBE4', '#CCEBC5', '#B3CDE3', '#E5D8BD'],
                       hover_name='seasonality',
                       height= 600)
